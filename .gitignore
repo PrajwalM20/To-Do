@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Variables and Secrets
+.env
+.env.*
+!.env.example
+
+# FastAPI / Uvicorn
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# SQLite Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build and Distribution
+build/
+dist/
+*.egg-info/
+
+# Docker
+# Do not ignore Dockerfile or docker-compose.yml
+
+# Frontend - Node.js
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Frontend Environment Variables
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Temporary Files
+*.tmp
+*.bak

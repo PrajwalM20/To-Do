@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Orbit — a calmer, clearer way to get things done.">
+  <title>Orbit — Your day, in motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Orbit home">
+        <span class="brand-symbol"><span></span><span></span><span></span></span>
+        <span>orbit<span class="brand-period">.</span></span>
+      </a>
+      <div class="topbar-meta">
+        <span class="system-status"><i></i> ALL SYSTEMS FOCUSED</span>
+        <span class="date-pill" id="currentDate">Today</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <div class="welcome-copy">
+          <p class="eyebrow"><span class="eyebrow-mark">✳</span> YOUR SPACE TO MAKE PROGRESS</p>
+          <h1>Small steps.<br><span>Big orbit.</span></h1>
+          <p class="welcome-description">Give your attention a direction.<br class="desktop-only"> One task at a time, one win at a time.</p>
+        </div>
+        <div class="orbit-visual" aria-hidden="true">
+          <div class="planet-ring ring-a"></div>
+          <div class="planet-ring ring-b"></div>
+          <div class="planet-ring ring-c"></div>
+          <div class="planet"><span>✦</span></div>
+          <span class="orbit-dot dot-a"></span><span class="orbit-dot dot-b"></span>
+          <span class="orbit-label">STAY IN MOTION</span>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Task statistics">
+        <article class="stat-card">
+          <div class="stat-heading"><span class="stat-symbol symbol-cyan">▤</span><span class="stat-label">TOTAL MISSIONS</span></div>
+          <div class="stat-value-row"><strong id="totalCount">0</strong><span class="stat-caption">on your radar</span></div>
+          <div class="stat-track"><span class="track-cyan" style="width:100%"></span></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-heading"><span class="stat-symbol symbol-lime">✓</span><span class="stat-label">MISSION COMPLETE</span></div>
+          <div class="stat-value-row"><strong id="completedCount">0</strong><span class="stat-caption">wins collected</span></div>
+          <div class="stat-track"><span id="completedTrack" class="track-lime" style="width:0%"></span></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-heading"><span class="stat-symbol symbol-violet">◷</span><span class="stat-label">STILL IN ORBIT</span></div>
+          <div class="stat-value-row"><strong id="remainingCount">0</strong><span class="stat-caption">ready for you</span></div>
+          <div class="stat-track"><span id="remainingTrack" class="track-violet" style="width:0%"></span></div>
+        </article>
+      </section>
+
+      <section class="tasks-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow panel-eyebrow">THE CONTROL ROOM</p>
+            <h2>Mission board<span class="heading-period">.</span></h2>
+            <p class="panel-subtitle">Your priorities, without the noise.</p>
+          </div>
+          <span class="task-count" id="taskCountBadge">0 tasks</span>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <span class="input-symbol">+</span>
+          <input id="taskInput" type="text" maxlength="200" placeholder="Add a mission to your day..." autocomplete="off" aria-label="New task" required>
+          <button class="add-button" type="submit"><span>Launch task</span><span class="button-arrow">↗</span></button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Everything <span id="allFilterCount">0</span></button>
+            <button class="filter-btn" type="button" data-filter="active" aria-pressed="false">In progress <span id="activeFilterCount">0</span></button>
+            <button class="filter-btn" type="button" data-filter="completed" aria-pressed="false">Completed <span id="doneFilterCount">0</span></button>
+          </div>
+          <button id="clearCompleted" class="clear-button" type="button" disabled><span>⌫</span> Clear completed</button>
+        </div>
+
+        <div id="errorBanner" class="error-banner" role="alert" hidden></div>
+        <div id="loadingState" class="loading-state"><span class="spinner"></span> Syncing your mission board...</div>
+        <div id="taskList" class="task-list" hidden></div>
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-orbit"><span>✦</span></div>
+          <h3 id="emptyTitle">Your orbit is clear.</h3>
+          <p id="emptyMessage">Add a mission above and build some momentum.</p>
+        </div>
+
+        <footer class="panel-footer">
+          <span class="footer-status"><i></i><span id="taskSummary">Everything is up to date</span></span>
+          <span class="footer-note">MAKE PROGRESS, NOT PRESSURE <b>✳</b></span>
+        </footer>
+      </section>
+      <p class="page-note">Designed for your next small win <span>✦</span></p>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
